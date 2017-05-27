@@ -2,6 +2,8 @@
 
 ### Update: ADDED GUI!!!
 
+![gui](gui_image.JPG)
+
 Just run `gui.py` and enjoy! It currently is only running on the Word Games. Will be fully functional soon. 
 
 The CLI works nicely. 

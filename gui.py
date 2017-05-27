@@ -15,6 +15,8 @@ class JepGui(object):
 		self.master = master
 		master.title("Jeopardy! - Word Game")
 		self.master.pack_propagate(0)
+		self.master.rowconfigure(5, weight=2)
+		self.master.rowconfigure(6, weight=2)
 
 
 		# define questions
@@ -30,14 +32,14 @@ class JepGui(object):
 
 
 		# the first label
-		self.label = Label(master, text="This is JEOPARDY! - WORD GAMES", bg='mint cream' )
+		self.label = Label(master, text="This is JEOPARDY!  - WORD GAMES", bg='mint cream', font="Helvetica 8 italic" )
 		self.label.pack()
 
 		# the categories
 		self.cat_text = StringVar()
 		self.current_cat = self.q.category
 		self.cat_text.set(self.current_cat)
-		self.cat_label = Label(master, textvariable=self.cat_text, bg='mint cream')
+		self.cat_label = Label(master, textvariable=self.cat_text, bg='mint cream', font="Helvetica 10 bold")
 		self.cat_label.pack()
 
 
@@ -66,7 +68,7 @@ class JepGui(object):
 		self.submit_button.pack()
 
 		# waiting for your answer
-		self.messaged = "Waiting for your answer"
+		self.messaged = "Waiting for your answer . . . "
 		self.labeled_text = StringVar()
 		self.labeled_text.set(self.messaged)
 		self.labeled = Label(master, textvariable = self.labeled_text, bg='mint cream')
@@ -82,7 +84,7 @@ class JepGui(object):
 		self.score_text = StringVar()
 		sc_text = "Player Score: " + str(self.player_score)
 		self.score_text.set(sc_text)
-		self.score_label = Label(master, textvariable = self.score_text, bg='mint cream')
+		self.score_label = Label(master, textvariable = self.score_text, bg='mint cream', font="Helvetica 8 bold")
 		self.score_label.pack()
 
 
@@ -102,7 +104,7 @@ class JepGui(object):
 			self.points_text.set(self.current_question_points)
 
 			# reset label
-			self.messaged = 'Waiting for your answer'
+			self.messaged = 'Waiting for your answer . . .'
 			self.labeled_text.set(self.messaged)
 
 
@@ -110,7 +112,7 @@ class JepGui(object):
 
 	def submit_answer(self, event):
 		player_answer = self.ent.get()
-		self.messaged = 'Waiting for your answer'
+		self.messaged = 'Waiting for your answer . . .'
 		if player_answer in self.q.answer:
 			# answer text
 			self.messaged = "Congrats! The correct answer is: " + self.q.answer
