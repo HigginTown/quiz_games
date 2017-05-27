@@ -1,12 +1,12 @@
-# Quiz game inspired by JEOPARDY! Now with a new GUI.
+# Quiz game inspired by JEOPARDY! Now with a new GUI
 
-### Update: ADDED GUI!!!
+### Update: ADDED GUI!
 
 ![gui](gui_image.JPG)
 
-Just run `gui.py` and enjoy! It currently is only running on the Word Games. Will be fully functional soon. 
+Just clone the repo and run `gui.py` to enjoy! It currently is only running on the Word Games. Will be fully functional soon. 
 
-The CLI works nicely. 
+The cli works nicely as well. 
 
 This is an interactive program on the command line which prompts you for an asnwer to a Jeopardy! question, all while tracking your score and randomzing the questions.
 
