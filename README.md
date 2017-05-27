@@ -1,8 +1,10 @@
-# Quiz games for the command line inspiried by JEOPARDY!
+# Quiz games inspiried by JEOPARDY! Now with a new GUI.
 
 ### Update: ADDED GUI!!!
 
 Just run `gui.py` and enjoy! It currently is only running on the Word Games. Will be fully functional soon. 
+
+The CLI works nicely. 
 
 This is an interactive program on the command line which prompts you for an asnwer to a Jeopardy! question, all while tracking your score and randomzing the questions.
 
