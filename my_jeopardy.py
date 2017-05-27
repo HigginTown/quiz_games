@@ -9,8 +9,13 @@ class Question(object):
         self.value = value 
  
     def ask(self):
-        print("Category: \n ", self.category)
-        print ("\n", self.question)
+        # category
+        category_text = ("Category: \n ", self.category)
+        print(category_text)
+
+        # question
+        question_text = str(self.question)
+        print ("\n", question_text)
         response = input("Your answer: ").strip()
         if response in self.answer:
             print("Correct!")
