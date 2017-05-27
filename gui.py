@@ -14,13 +14,13 @@ class JepGui(object):
 		# the title and params
 		self.master = master
 		master.title("Jeopardy! - Word Game")
-		master.minsize(width=666, height=406)
+		self.master.pack_propagate(0)
+
 
 		# define questions
 		self.questions = random.sample(questions, len(questions))
 		self.idx = 0
 		self.q = self.questions[self.idx]
-
 
 		# set score and points
 		self.player_score = 0
@@ -30,14 +30,14 @@ class JepGui(object):
 
 
 		# the first label
-		self.label = Label(master, text="This is JEOPARDY! - WORD GAMES \n", )
+		self.label = Label(master, text="This is JEOPARDY! - WORD GAMES", bg='mint cream' )
 		self.label.pack()
 
 		# the categories
 		self.cat_text = StringVar()
 		self.current_cat = self.q.category
 		self.cat_text.set(self.current_cat)
-		self.cat_label = Label(master, textvariable=self.cat_text)
+		self.cat_label = Label(master, textvariable=self.cat_text, bg='mint cream')
 		self.cat_label.pack()
 
 
@@ -45,23 +45,23 @@ class JepGui(object):
 		self.question_text = StringVar()
 		self.current_question = self.q.question
 		self.question_text.set(self.current_question)
-		self.question_label = Label(master, textvariable=self.question_text)
+		self.question_label = Label(master, textvariable=self.question_text, bg='mint cream')
 		self.question_label.pack()
 
 		# the question points
 		self.points_text = StringVar()
 		self.current_question_points = self.q.value
 		self.points_text.set(self.current_question_points)
-		self.points_label = Label(master, textvariable=self.points_text)
+		self.points_label = Label(master, textvariable=self.points_text, bg='mint cream')
 		self.points_label.pack()
 
 		# create space for entry validation
 		vcmd = master.register(self.validate)
-		self.ent = Entry(master, validate="key", validatecommand=(vcmd, '%P'))
+		self.ent = Entry(master, validate="key", validatecommand=(vcmd, '%P'), bg='white smoke')
 		self.ent.pack()
 
 		# submit button
-		self.submit_button = Button(master, text='Pay me!')
+		self.submit_button = Button(master, text='Pay me!', bg='blanched almond')
 		self.submit_button.bind("<Button-1>", self.submit_answer)
 		self.submit_button.pack()
 
@@ -69,12 +69,12 @@ class JepGui(object):
 		self.messaged = "Waiting for your answer"
 		self.labeled_text = StringVar()
 		self.labeled_text.set(self.messaged)
-		self.labeled = Label(master, textvariable = self.labeled_text)
+		self.labeled = Label(master, textvariable = self.labeled_text, bg='mint cream')
 		self.labeled.pack()
 
 
 		# the next button
-		self.next = Button(master, text='-->')
+		self.next = Button(master, text='-->', bg='blanched almond')
 		self.next.bind("<Button-1>", self.cycle_questions)
 		self.next.pack()
 
@@ -82,7 +82,7 @@ class JepGui(object):
 		self.score_text = StringVar()
 		sc_text = "Player Score: " + str(self.player_score)
 		self.score_text.set(sc_text)
-		self.score_label = Label(master, textvariable = self.score_text)
+		self.score_label = Label(master, textvariable = self.score_text, bg='mint cream')
 		self.score_label.pack()
 
 
@@ -131,15 +131,14 @@ class JepGui(object):
 			sc_text = "Player Score: " + str(self.player_score)
 			self.score_text.set(sc_text)
 
+
 	def validate(self, new_text):
 		if not new_text:
 			self.player_answer = None
 			return True
-
 		try:
 			guess = str(new_text)
 			return True
-
 		except ValueError:
 			return False
 		
@@ -152,5 +151,8 @@ class JepGui(object):
 
 
 root = Tk()
+root.geometry("600x375")
+root.pack_propagate(0)
+root.configure(bg='mint cream')
 gui = JepGui(root, questions)
 root.mainloop()
