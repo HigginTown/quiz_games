@@ -1,4 +1,4 @@
-# Quiz games inspiried by JEOPARDY! Now with a new GUI.
+# Quiz game inspired by JEOPARDY! Now with a new GUI.
 
 ### Update: ADDED GUI!!!
 
